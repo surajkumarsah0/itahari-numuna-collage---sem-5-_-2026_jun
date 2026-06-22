@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 export default async function ProductsPage() {
   const datas: TypeProducts[] | null = await getFakeStoreData("/products");
-
+console.log(datas)
   if (!datas || !datas.length) return notFound();
 
   return (

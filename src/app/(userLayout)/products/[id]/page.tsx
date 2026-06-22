@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 export default  async function SingleProductPage({params}:PageProps<"/products/[id]">){
     const {id}=await params
     const data:TypeProducts |null = await getFakeStoreData(`/products/${id}`)
+    
     if(!data) return notFound()
     return(
         <div>
