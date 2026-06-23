@@ -7,9 +7,7 @@ export async function GET(
   const { id } = await ctx.params;
 
   const foundProduct = FakeStoreDATA.find((data) => data.id == parseInt(id));
-
   if (!foundProduct)
     return Response.json(null, { status: 404 });
-
   return Response.json(foundProduct);
 }
