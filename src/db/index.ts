@@ -6,3 +6,6 @@ export const db=mysql2.createPool({
     user:process.env.DB_USER,
     database:process.env.DB_DATABASE
 })
+
+
+// export const db=mysql2.createPool(process.env.DB_URL!)
