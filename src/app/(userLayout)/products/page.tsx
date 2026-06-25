@@ -1,9 +1,10 @@
 import ProcuctCard from "@/components/ProductCard";
-import getFakeStoreData from "@/lib/getFakestoreData";
+import { getProductFromDB } from "@/services/productServices";
 import { notFound } from "next/navigation";
 
 export default async function ProductsPage() {
-  const datas: TypeProducts[] | null = await getFakeStoreData("/products");
+  // const datas: TypeProducts[] | null = await getFakeStoreData("/products");
+  const datas = await getProductFromDB()
   if (!datas || !datas.length) return notFound();
 
   return (

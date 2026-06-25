@@ -18,9 +18,7 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const newProduct = await request.json()
-        console.log("New Product:", newProduct)
         const createdProduct = await createProductInDB(newProduct)
-        console.log("Created Product:", createdProduct)
 
         return Response.json({ message: "Product created successfully", newProduct: createdProduct }, { status: 201 })
     } catch (error) {

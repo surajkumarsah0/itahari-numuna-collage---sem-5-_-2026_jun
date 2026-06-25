@@ -3,7 +3,7 @@ import { db } from "@/db";
 export async function getProductFromDB() {
     try {
         const [products] = await db.execute("select * from products");
-        return products;
+        return products as TypeProducts[];
     } catch (error) {
         throw error;
     }
@@ -40,3 +40,12 @@ export async function deleteProductFromDB(id: number) {
         throw error;
     }
 }   
+
+
+export async function getProductByIdFromDB(id: number) {
+    try {
+        const [product] = await db.execute("select * from products where id=?", [id]);
+        return product as unknown as TypeProducts; 
+    } catch (error) {
+        throw error;
+    }}
